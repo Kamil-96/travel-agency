@@ -1,0 +1,37 @@
+{
+  "orders": [
+    {
+      "car-rental": "luxury",
+      "accommodation": "hotel",
+      "features": [
+        "all-inclusive",
+        "pool",
+        "security"
+      ],
+      "adults": "2",
+      "children": 0,
+      "name": "Kamil",
+      "contact": "123 456 789",
+      "start-date": "",
+      "totalCost": "$109,762",
+      "id": 1
+    },
+    {
+      "car-rental": "full",
+      "accommodation": "hotel",
+      "features": [
+        "pool",
+        "all-inclusive"
+      ],
+      "adults": "1",
+      "children": 0,
+      "name": "abc",
+      "contact": "123",
+      "start-date": "",
+      "totalCost": "$30,619",
+      "tripName": "Pleasant trek in outstanding Togo",
+      "tripId": "5cc1d10181a30e85c8d9ad4a",
+      "id": 2
+    }
+  ]
+}
