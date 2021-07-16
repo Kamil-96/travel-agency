@@ -31,12 +31,16 @@ const sendOrder = (options, tripCost, tripName, tripId, countryCode) => {
     body: JSON.stringify(payload),
   };
 
-  fetch(url, fetchOptions)
-    .then(function(response){
-      return response.json();
-    }).then(function(parsedResponse){
-      console.log('parsedResponse', parsedResponse);
-    });
+  if(options.name !== '' && options.contact !== '') {
+    fetch(url, fetchOptions)
+      .then(function(response){
+        return response.json();
+      }).then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+      });
+  } else {
+    alert('Please enter required data.');
+  }
 };
 
 const OrderForm = ({tripCost, options, setOrderOption, tripName, tripId, countryCode}) => (

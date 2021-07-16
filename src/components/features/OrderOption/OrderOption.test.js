@@ -145,7 +145,9 @@ for(let type in optionTypes){
         });
 
         it('should run setOrderOption function on change', () => {
-          //TO DO
+          renderedSubcomponent.find(`input[value="${testValue}"]`).simulate('change', {currentTarget: {checked: true}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: [mockProps.currentValue, testValue] });
         });
         break;
       }
@@ -157,6 +159,7 @@ for(let type in optionTypes){
 
           const inputs = div.find('input[type="number"]');
           expect(inputs.length).toBe(1);
+          expect(inputs.prop('value')).toBe(mockPropsForType.number.currentValue);
           expect(inputs.prop('min')).toBe(mockProps.limits.min);
           expect(inputs.prop('max')).toBe(mockProps.limits.max);
         });
