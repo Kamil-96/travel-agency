@@ -27,28 +27,28 @@ describe('utils', () => {
   });
 
   describe('promoPrice', () => {
-    it('should return null if there is no or one arg', () => {
-      expect(promoPrice()).toBe(null);
-      expect(promoPrice(10)).toBe(null);
+    it('should return undefined if there is no or one arg', () => {
+      expect(promoPrice()).toBe(undefined);
+      expect(promoPrice(10)).toBe(undefined);
     });
 
-    it('should return null if arg is not a number', () => {
-      expect(promoPrice('abc', 'xyz')).toBe(null);
-      expect(promoPrice({}, [])).toBe(null);
+    it('should return undefined if price is not a string', () => {
+      expect(promoPrice(10, 15)).toBe(undefined);
+      expect(promoPrice({}, 20)).toBe(undefined);
     });
 
-    it('should return null if arg is lower than zero or second arg is greater than 100 or equal to zero', () => {
-      expect(promoPrice(-2, -5)).toBe(null);
-      expect(promoPrice(30, -1)).toBe(null);
-      expect(promoPrice(50, 110)).toBe(null);
-      expect(promoPrice(10000, 0)).toBe(null);
+    it('should return undefined if discount is greater than 100 or equal to zero', () => {
+      expect(promoPrice('$20', -5)).toBe(undefined);
+      expect(promoPrice('$30', -1)).toBe(undefined);
+      expect(promoPrice('$50', 110)).toBe(undefined);
+      expect(promoPrice('$10,000', 0)).toBe(undefined);
     });
 
     it('should return correct number', () => {
-      expect(promoPrice(30000, 20)).toBe(24000);
-      expect(promoPrice(25000, 100)).toBe(0);
-      expect(promoPrice(50000, 50)).toBe(25000);
-      expect(promoPrice(10000, 1)).toBe(9900);
+      expect(promoPrice('$30,000', 20)).toBe('$24,000');
+      expect(promoPrice('$25,000', 99)).toBe('$250');
+      expect(promoPrice('$50,000', 50)).toBe('$25,000');
+      expect(promoPrice('$10,000', 1)).toBe('$9,900');
     });
   });
 });

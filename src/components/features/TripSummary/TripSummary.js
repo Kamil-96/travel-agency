@@ -13,9 +13,8 @@ const TripSummary = ({id, image, name, cost, days, tags}) => (
         <h3 className={styles.title}>{name}</h3>
         <div className={styles.details}>
           <span>{days} days</span>
-          <span>from {promoPrice(parseFloat(cost), 20)}</span>
-          {console.log(promoPrice(cost, 20))}
-          {console.log('cost: ', cost)}
+          <span className={styles.promo}>Price from: {promoPrice(cost, 20)}</span>
+          <span>Standard price: {cost}</span>
         </div>
         <div className={styles.tags}>
           {tags.map(tag => (
